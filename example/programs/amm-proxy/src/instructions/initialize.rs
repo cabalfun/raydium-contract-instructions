@@ -56,7 +56,7 @@ pub struct ProxyInitialize<'info> {
     pub market: UncheckedAccount<'info>,
     /// CHECK: Safe. The user wallet create the pool
     #[account(mut)]
-    pub user_wallet: Signer<'info>,
+    pub user_wallet: AccountInfo<'info>,
     /// CHECK: Safe. The user coin token
     #[account(
         mut,

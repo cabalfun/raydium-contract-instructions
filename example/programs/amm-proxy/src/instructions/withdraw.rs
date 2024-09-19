@@ -50,7 +50,7 @@ pub struct ProxyWithdraw<'info> {
     pub user_token_pc: UncheckedAccount<'info>,
     /// CHECK: Safe. User wallet account
     #[account(mut)]
-    pub user_owner: Signer<'info>,
+    pub user_owner: AccountInfo<'info>,
     /// CHECK: Safe. OpenBook event queue account
     #[account(mut)]
     pub market_event_q: UncheckedAccount<'info>,

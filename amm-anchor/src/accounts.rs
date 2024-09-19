@@ -111,7 +111,7 @@ pub struct Initialize2<'info> {
     pub market: UncheckedAccount<'info>,
     /// CHECK: Safe. The user wallet create the pool
     #[account(mut)]
-    pub user_wallet: Signer<'info>,
+    pub user_wallet: AccountInfo<'info>,
     /// CHECK: Safe. The user coin token
     #[account(
         mut,
@@ -187,7 +187,7 @@ pub struct Deposit<'info> {
     pub user_token_lp: UncheckedAccount<'info>,
     /// CHECK: Safe. User wallet account
     #[account(mut)]
-    pub user_owner: Signer<'info>,
+    pub user_owner: AccountInfo<'info>,
     /// CHECK: Safe. The spl token program
     pub token_program: Program<'info, Token>,
 }
@@ -243,7 +243,7 @@ pub struct Withdraw<'info> {
     pub user_token_pc: UncheckedAccount<'info>,
     /// CHECK: Safe. User wallet account
     #[account(mut)]
-    pub user_owner: Signer<'info>,
+    pub user_owner: AccountInfo<'info>,
     /// CHECK: Safe. OpenBook event queue account
     #[account(mut)]
     pub market_event_q: UncheckedAccount<'info>,
@@ -309,7 +309,7 @@ pub struct SwapBaseIn<'info> {
     pub user_token_destination: UncheckedAccount<'info>,
     /// CHECK: Safe. user owner Account
     #[account(mut)]
-    pub user_source_owner: Signer<'info>,
+    pub user_source_owner: AccountInfo<'info>,
     /// CHECK: Safe. The spl token program
     pub token_program: Program<'info, Token>,
 }
@@ -366,7 +366,7 @@ pub struct SwapBaseOut<'info> {
     pub user_token_destination: UncheckedAccount<'info>,
     /// CHECK: Safe. user owner Account
     #[account(mut)]
-    pub user_source_owner: Signer<'info>,
+    pub user_source_owner: AccountInfo<'info>,
     /// CHECK: Safe. The spl token program
     pub token_program: Program<'info, Token>,
 }

@@ -51,7 +51,7 @@ pub struct ProxySwapBaseIn<'info> {
     pub user_token_destination: UncheckedAccount<'info>,
     /// CHECK: Safe. user owner Account
     #[account(mut)]
-    pub user_source_owner: Signer<'info>,
+    pub user_source_owner: AccountInfo<'info>,
     /// CHECK: Safe. The spl token program
     pub token_program: Program<'info, Token>,
 }

@@ -38,7 +38,7 @@ pub struct PreInitialize<'info> {
     pub serum_market: UncheckedAccount<'info>,
     /// The user wallet create the pool
     #[account(mut)]
-    pub user_wallet: Signer<'info>,
+    pub user_wallet: AccountInfo<'info>,
     pub spl_token_program: Program<'info, Token>,
     pub system_program: Program<'info, System>,
     pub rent: Sysvar<'info, Rent>,
@@ -94,7 +94,7 @@ pub struct Initialize<'info> {
     pub user_dest_lp_token: UncheckedAccount<'info>,
     /// The user wallet create the pool
     #[account(mut)]
-    pub user_wallet: Signer<'info>,
+    pub user_wallet: AccountInfo<'info>,
     pub spl_token_program: Program<'info, Token>,
     pub system_program: Program<'info, System>,
     pub rent: Sysvar<'info, Rent>,
@@ -138,7 +138,7 @@ pub struct Deposit<'info> {
     pub user_dest_lp_token: UncheckedAccount<'info>,
     /// Safe  User wallet account
     #[account(mut)]
-    pub user_owner: Signer<'info>,
+    pub user_owner: AccountInfo<'info>,
     pub spl_token_program: Program<'info, Token>,
 }
 
@@ -191,7 +191,7 @@ pub struct Withdraw<'info> {
     pub user_dest_pc_token: UncheckedAccount<'info>,
     /// Safe User wallet account
     #[account(mut)]
-    pub user_owner: Signer<'info>,
+    pub user_owner: AccountInfo<'info>,
     pub spl_token_program: Program<'info, Token>,
 }
 
@@ -243,7 +243,7 @@ pub struct SwapBaseIn<'info> {
     #[account(mut)]
     pub user_destination_token: UncheckedAccount<'info>,
     #[account(mut)]
-    pub user_source_owner: Signer<'info>,
+    pub user_source_owner: AccountInfo<'info>,
     pub spl_token_program: Program<'info, Token>,
 }
 
@@ -295,6 +295,6 @@ pub struct SwapBaseOut<'info> {
     #[account(mut)]
     pub user_destination_token: UncheckedAccount<'info>,
     #[account(mut)]
-    pub user_source_owner: Signer<'info>,
+    pub user_source_owner: AccountInfo<'info>,
     pub spl_token_program: Program<'info, Token>,
 }

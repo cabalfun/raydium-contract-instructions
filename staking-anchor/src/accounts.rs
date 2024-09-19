@@ -9,7 +9,7 @@ pub struct Initialize<'info> {
     #[account(mut)]
     pub stake_pool: UncheckedAccount<'info>,
     #[account(mut)]
-    pub authority: Signer<'info>,
+    pub authority: AccountInfo<'info>,
     /// CHECK: Safe.
     pub lp_vault: UncheckedAccount<'info>,
     /// CHECK: Safe.
@@ -41,7 +41,7 @@ pub struct Deposit<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub src_lp_token: UncheckedAccount<'info>,
@@ -70,7 +70,7 @@ pub struct Withdraw<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub dest_lp_token: UncheckedAccount<'info>,
@@ -99,7 +99,7 @@ pub struct EmergencyWithdraw<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub dest_lp_token: UncheckedAccount<'info>,
@@ -132,7 +132,7 @@ pub struct CreateAssociatedAccount<'info> {
     #[account(mut)]
     pub associated_user_stake_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub owner: Signer<'info>,
+    pub owner: AccountInfo<'info>,
     /// CHECK: Safe System program
     pub system_program: Program<'info, System>,
     /// CHECK: Safe. Clock program

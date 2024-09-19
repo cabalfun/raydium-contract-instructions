@@ -43,7 +43,7 @@ pub struct Deposit<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub src_lp_token: UncheckedAccount<'info>,
@@ -72,7 +72,7 @@ pub struct DepositV2<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub src_lp_token: UncheckedAccount<'info>,
@@ -107,7 +107,7 @@ pub struct Withdraw<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub dest_lp_token: UncheckedAccount<'info>,
@@ -136,7 +136,7 @@ pub struct WithdrawV2<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub dest_lp_token: UncheckedAccount<'info>,
@@ -165,7 +165,7 @@ pub struct EmergencyWithdraw<'info> {
     #[account(mut)]
     pub staker_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub staker_owner: Signer<'info>,
+    pub staker_owner: AccountInfo<'info>,
     /// CHECK: Safe.
     #[account(mut)]
     pub dest_lp_token: UncheckedAccount<'info>,
@@ -198,7 +198,7 @@ pub struct CreateAssociatedAccount<'info> {
     #[account(mut)]
     pub associated_user_stake_info: UncheckedAccount<'info>,
     #[account(mut)]
-    pub owner: Signer<'info>,
+    pub owner: AccountInfo<'info>,
     /// Safe System program
     pub system_program: Program<'info, System>,
     /// Clock program

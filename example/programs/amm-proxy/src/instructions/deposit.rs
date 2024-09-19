@@ -41,7 +41,7 @@ pub struct ProxyDeposit<'info> {
     pub user_token_lp: UncheckedAccount<'info>,
     /// CHECK: Safe. User wallet account
     #[account(mut)]
-    pub user_owner: Signer<'info>,
+    pub user_owner: AccountInfo<'info>,
     /// CHECK: Safe. The spl token program
     pub token_program: Program<'info, Token>,
 }
