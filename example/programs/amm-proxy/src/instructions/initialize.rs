@@ -6,54 +6,54 @@ use anchor_spl::token::Token;
 #[derive(Accounts, Clone)]
 pub struct ProxyInitialize<'info> {
     /// CHECK: Safe
-    pub amm_program: UncheckedAccount<'info>,
+    pub amm_program: AccountInfo<'info>,
     /// CHECK: Safe. The new amm Account to be create, a PDA create with seed = [program_id, openbook_market_id, b"amm_associated_seed"]
     #[account(mut)]
-    pub amm: UncheckedAccount<'info>,
+    pub amm: AccountInfo<'info>,
     /// CHECK: Safe. Amm authority, a PDA create with seed = [b"amm authority"]
     #[account()]
-    pub amm_authority: UncheckedAccount<'info>,
+    pub amm_authority: AccountInfo<'info>,
     /// CHECK: Safe. Amm open_orders Account, a PDA create with seed = [program_id, openbook_market_id, b"open_order_associated_seed"]
     #[account(mut)]
-    pub amm_open_orders: UncheckedAccount<'info>,
+    pub amm_open_orders: AccountInfo<'info>,
     /// CHECK: Safe. Pool lp mint account. Must be empty, owned by $authority.
     #[account(mut)]
-    pub amm_lp_mint: UncheckedAccount<'info>,
+    pub amm_lp_mint: AccountInfo<'info>,
     /// CHECK: Safe. Coin mint account
     #[account(
         owner = token_program.key()
     )]
-    pub amm_coin_mint: UncheckedAccount<'info>,
+    pub amm_coin_mint: AccountInfo<'info>,
     /// CHECK: Safe. Pc mint account
     #[account(
         owner = token_program.key()
     )]
-    pub amm_pc_mint: UncheckedAccount<'info>,
+    pub amm_pc_mint: AccountInfo<'info>,
     /// CHECK: Safe. amm_coin_vault Account. Must be non zero, owned by $authority
     #[account(mut)]
-    pub amm_coin_vault: UncheckedAccount<'info>,
+    pub amm_coin_vault: AccountInfo<'info>,
     /// CHECK: Safe. amm_pc_vault Account. Must be non zero, owned by $authority.
     #[account(mut)]
-    pub amm_pc_vault: UncheckedAccount<'info>,
+    pub amm_pc_vault: AccountInfo<'info>,
     /// CHECK: Safe. amm_target_orders Account. Must be non zero, owned by $authority.
     #[account(mut)]
-    pub amm_target_orders: UncheckedAccount<'info>,
+    pub amm_target_orders: AccountInfo<'info>,
     /// CHECK: Safe. Amm Config.
     #[account()]
-    pub amm_config: UncheckedAccount<'info>,
+    pub amm_config: AccountInfo<'info>,
     /// CHECK: Safe. Amm create_fee_destination.
     #[account(mut)]
-    pub create_fee_destination: UncheckedAccount<'info>,
+    pub create_fee_destination: AccountInfo<'info>,
     /// CHECK: Safe. OpenBook program.
     #[account(
         address = amm_anchor::openbook_program_id::id(),
     )]
-    pub market_program: UncheckedAccount<'info>,
+    pub market_program: AccountInfo<'info>,
     /// CHECK: Safe. OpenBook market. OpenBook program is the owner.
     #[account(
         owner = market_program.key(),
     )]
-    pub market: UncheckedAccount<'info>,
+    pub market: AccountInfo<'info>,
     /// CHECK: Safe. The user wallet create the pool
     #[account(mut)]
     pub user_wallet: AccountInfo<'info>,
@@ -62,16 +62,16 @@ pub struct ProxyInitialize<'info> {
         mut,
         owner = token_program.key(),
     )]
-    pub user_token_coin: UncheckedAccount<'info>,
+    pub user_token_coin: AccountInfo<'info>,
     /// CHECK: Safe. The user pc token
     #[account(
         mut,
         owner = token_program.key(),
     )]
-    pub user_token_pc: UncheckedAccount<'info>,
+    pub user_token_pc: AccountInfo<'info>,
     /// CHECK: Safe. The user lp token
     #[account(mut)]
-    pub user_token_lp: UncheckedAccount<'info>,
+    pub user_token_lp: AccountInfo<'info>,
     /// CHECK: Safe. The spl token program
     pub token_program: Program<'info, Token>,
     /// CHECK: Safe. The associated token program
